@@ -7,6 +7,7 @@ const Blockchain = require('./blockchain');
 
 const bitcoin = new Blockchain();
 const nodeAddress = uuid().split('-').join('');
+const port = process.argv[2]; 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,6 +43,18 @@ app.get('/mine', function (req, res) {
     });
 });
 
-app.listen(3000, function () {
-    console.log('listening on port 3000...');
+app.post('/register-and-broadcast-node', function (req, res) {
+    const newNodeUrl = req.body.newNodeUrl;
+});
+
+app.post('/register-node', function (req, res) {
+
+});
+
+app.post('/register-nodes-bulk', function (req, res) {
+    
+});
+
+app.listen(port, function () {
+    console.log(`Listening on port ${port}...`);
 });
